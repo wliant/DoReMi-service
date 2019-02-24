@@ -13,22 +13,23 @@ import com.thesundaylunatics.model.Customer;
 import com.thesundaylunatics.service.CustomerService;
 
 @RestController
+@RequestMapping(value="/rest2/customers")
 public class CustomerController {
 	
 	@Autowired
 	private CustomerService customerService;
 	
-	@RequestMapping(value="/customers", method = RequestMethod.GET)
-	public List<Customer> listCustomer() {
+	@RequestMapping(method = RequestMethod.GET)
+	public List<Customer> listCustomers() {
 		return customerService.list();
 	}
 	
-	@RequestMapping(value = "/customers/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public Customer getCustomer(@PathVariable(value = "id") Long id) {
 		return customerService.get(id);
 	}
 	
-	@RequestMapping(value = "/customers", method = RequestMethod.POST)
+	@RequestMapping(method = RequestMethod.POST)
 	public Customer saveCustomer(@RequestBody Customer customer) {
 		return customerService.save(customer);
 	}
