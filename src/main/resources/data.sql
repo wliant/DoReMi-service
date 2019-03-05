@@ -1,2 +1,2 @@
+INSERT into tb_product values (1,'author','category','title','publisher',1.2,1,1,'imageUrl',1);
 INSERT into tb_supplier values (1, 'supplier1');
-INSERT into tb_product values (1,'category','title','author',1,'publisher','imageurl',1,1.2,1);
