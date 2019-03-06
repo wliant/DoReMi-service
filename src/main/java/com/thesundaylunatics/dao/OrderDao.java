@@ -7,5 +7,4 @@ import com.thesundaylunatics.model.Order;
 
 @Repository
 public interface OrderDao extends CrudRepository<Order, Long> {
-
 }

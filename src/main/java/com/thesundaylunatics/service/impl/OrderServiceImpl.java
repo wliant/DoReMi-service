@@ -2,6 +2,8 @@ package com.thesundaylunatics.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,6 +28,13 @@ public class OrderServiceImpl implements OrderService{
 		List<Order> list = new ArrayList<>();
 		orderDao.findAll().iterator().forEachRemaining(list::add);
 		return list;
+	}
+
+	@Override
+	public List<Order> approvedList() {
+		return StreamSupport.stream(orderDao.findAll().spliterator(), false)
+				.filter(order->order.isApproved())
+				.collect(Collectors.toList());
 	}
 
 	@Override

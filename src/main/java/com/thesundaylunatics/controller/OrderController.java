@@ -17,12 +17,17 @@ import com.thesundaylunatics.service.OrderService;
 public class OrderController {
 	@Autowired
 	private OrderService orderService;
-	
+
 	@RequestMapping(value="/orders", method = RequestMethod.GET)
 	public List<Order> listOrder() {
 		return orderService.list();
 	}
-	
+
+	@RequestMapping(value="/approved_orders", method = RequestMethod.GET)
+	public List<Order> listApprovedOrder() {
+		return orderService.approvedList();
+	}
+
 	@RequestMapping(value = "/orders/{id}", method = RequestMethod.GET)
 	public Order getOrder(@PathVariable(value = "id") Long id) {
 		return orderService.get(id);
