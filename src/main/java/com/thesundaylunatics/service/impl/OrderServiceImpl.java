@@ -33,7 +33,7 @@ public class OrderServiceImpl implements OrderService{
 	@Override
 	public List<Order> approvedList() {
 		return StreamSupport.stream(orderDao.findAll().spliterator(), false)
-				.filter(order->order.isApproved())
+				.filter(order->order.getStatus().equals("APPROVED"))
 				.collect(Collectors.toList());
 	}
 
