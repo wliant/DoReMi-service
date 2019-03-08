@@ -34,6 +34,11 @@ public class ProductServiceImpl implements ProductService{
 	}
 
 	@Override
+	public Product update(Product product) {
+		return productDao.save(product);
+	}
+
+	@Override
 	public Product get(Long id) {
 		return productDao.findOne(id);
 	}

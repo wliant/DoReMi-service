@@ -29,8 +29,12 @@ public class ProductController {
 	}
 	
 	@RequestMapping(value = "/products", method = RequestMethod.POST)
-	public Product saveProduct(@RequestBody Product order) {
-		return productService.save(order);
+	public Product saveProduct(@RequestBody Product product) {
+		return productService.save(product);
+	}
+	@RequestMapping(value = "/products", method = RequestMethod.PUT)
+	public Product updateProduct(@RequestBody Product product) {
+		return productService.update(product);
 	}
 }
 
