@@ -21,7 +21,7 @@
   </configuration>
   <containers>
     <container>
-      <containerId>DoReMi-kjar-1.0-SNAPSHOT</containerId>
+      <containerId>DoReMi-kjar_1.0-SNAPSHOT</containerId>
       <releaseId>
         <groupId>com.thesundaylunatics</groupId>
         <artifactId>DoReMi-kjar</artifactId>
