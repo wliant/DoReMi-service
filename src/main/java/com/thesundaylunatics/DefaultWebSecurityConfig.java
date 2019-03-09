@@ -52,15 +52,15 @@ public class DefaultWebSecurityConfig extends WebSecurityConfigurerAdapter {
     	auth.inMemoryAuthentication().withUser("cust2").password("cust2").roles("customer");
     	auth.inMemoryAuthentication().withUser("cust3").password("cust3").roles("customer");
     	auth.inMemoryAuthentication().withUser("cust4").password("cust4").roles("customer");
-    	auth.inMemoryAuthentication().withUser("s1").password("s1").roles("sales");
+    	auth.inMemoryAuthentication().withUser("Sam (Sales)").password("s1").roles("sales");
     	auth.inMemoryAuthentication().withUser("s2").password("s2").roles("sales");
     	auth.inMemoryAuthentication().withUser("s3").password("s3").roles("sales");
     	auth.inMemoryAuthentication().withUser("s4").password("s4").roles("sales");
-    	auth.inMemoryAuthentication().withUser("acc1").password("acc1").roles("accounts");
+    	auth.inMemoryAuthentication().withUser("Sam (Accounts)").password("acc1").roles("accounts");
     	auth.inMemoryAuthentication().withUser("acc2").password("acc2").roles("accounts");
     	auth.inMemoryAuthentication().withUser("acc3").password("acc3").roles("accounts");
     	auth.inMemoryAuthentication().withUser("acc4").password("acc4").roles("accounts");
-    	auth.inMemoryAuthentication().withUser("wh1").password("wh1").roles("warehouse");
+    	auth.inMemoryAuthentication().withUser("Sam (Warehouse)").password("wh1").roles("warehouse");
     	auth.inMemoryAuthentication().withUser("wh2").password("wh2").roles("warehouse");
     	auth.inMemoryAuthentication().withUser("wh3").password("wh3").roles("warehouse");
     	auth.inMemoryAuthentication().withUser("wh4").password("wh4").roles("warehouse");
