@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.thesundaylunatics.model.Notification;
@@ -20,8 +21,8 @@ public class NotificationController {
 	private NotificationService notificationService;
 	
 	@RequestMapping(method = RequestMethod.GET)
-	public List<Notification> listNotifications() {
-		return notificationService.list();
+	public List<Notification> listNotifications(@RequestParam("isRead") Boolean isRead) {
+		return notificationService.list(isRead);
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)

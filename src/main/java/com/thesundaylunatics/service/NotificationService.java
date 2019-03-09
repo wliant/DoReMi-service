@@ -6,7 +6,7 @@ import com.thesundaylunatics.model.Notification;
 
 public interface NotificationService {
 	Notification save(Notification notification);
-	List<Notification> list();
+	List<Notification> list(Boolean isRead);
 	void delete(Long id);
 	Notification get(Long id);
 	

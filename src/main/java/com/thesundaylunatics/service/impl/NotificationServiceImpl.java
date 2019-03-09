@@ -26,18 +26,25 @@ public class NotificationServiceImpl implements NotificationService{
 	}
 
 	@Override
-	public List<Notification> list() {
-		List<Notification> list = new ArrayList<>();
+	public List<Notification> list(Boolean isRead) {
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		String username = null;
+		final String username;
 		if (principal instanceof UserDetails) {
 		  username = ((UserDetails)principal).getUsername();
 		} else {
 		  username = principal.toString();
 		}
-		return StreamSupport.stream(notificationDao.findAll().spliterator(), false)
-				.filter(noti->noti.getRecipient().equals("Approved"))
-				.collect(Collectors.toList());
+		if(isRead != null) {
+			return StreamSupport.stream(notificationDao.findAll().spliterator(), false)
+					.filter(noti->noti.getRecipient().equals(username))
+					.filter(noti->noti.getIsRead().equals(isRead))
+					.collect(Collectors.toList());
+		}
+		else {
+			return StreamSupport.stream(notificationDao.findAll().spliterator(), false)
+					.filter(noti->noti.getRecipient().equals(username))
+					.collect(Collectors.toList());
+		}
 	}
 
 	@Override
