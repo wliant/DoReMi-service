@@ -1,6 +1,5 @@
 package com.thesundaylunatics.service.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
@@ -14,7 +13,7 @@ import com.thesundaylunatics.dao.NotificationDao;
 import com.thesundaylunatics.model.Notification;
 import com.thesundaylunatics.service.NotificationService;
 
-@Service(value = "customerService")
+@Service(value = "notificationService")
 public class NotificationServiceImpl implements NotificationService{
 
 	@Autowired
