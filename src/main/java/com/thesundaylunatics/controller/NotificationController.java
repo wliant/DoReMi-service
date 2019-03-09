@@ -1,6 +1,7 @@
 package com.thesundaylunatics.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,7 +22,7 @@ public class NotificationController {
 	private NotificationService notificationService;
 	
 	@RequestMapping(method = RequestMethod.GET)
-	public List<Notification> listNotifications(@RequestParam("isRead") Boolean isRead) {
+	public List<Notification> listNotifications(@RequestParam(name = "isRead", required=false) Boolean isRead) {
 		return notificationService.list(isRead);
 	}
 	
