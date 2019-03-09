@@ -56,4 +56,9 @@ public class NotificationServiceImpl implements NotificationService{
 		return notificationDao.findOne(id);
 	}
 
+	@Override
+	public Notification update(Notification notification) {
+		return notificationDao.save(notification);
+	}
+
 }

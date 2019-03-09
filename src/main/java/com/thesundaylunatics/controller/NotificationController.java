@@ -35,4 +35,9 @@ public class NotificationController {
 	public Notification saveNotification(@RequestBody Notification customer) {
 		return notificationService.save(customer);
 	}
+	
+	@RequestMapping(method = RequestMethod.PUT)
+	public Notification updateNotification(@RequestBody Notification customer) {
+		return notificationService.save(customer);
+	}
 }

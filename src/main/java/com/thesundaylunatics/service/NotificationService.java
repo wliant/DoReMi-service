@@ -9,5 +9,6 @@ public interface NotificationService {
 	List<Notification> list(Boolean isRead);
 	void delete(Long id);
 	Notification get(Long id);
+	Notification update(Notification notification);
 	
 }
