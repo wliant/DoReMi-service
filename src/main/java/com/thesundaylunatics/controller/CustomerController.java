@@ -3,34 +3,38 @@ package com.thesundaylunatics.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 
 import com.thesundaylunatics.model.Customer;
 import com.thesundaylunatics.service.CustomerService;
 
-@RestController
-@RequestMapping(value="/rest2/customers")
+@Path("customers")
+@Consumes(MediaType.APPLICATION_JSON)
+@Produces( {MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
 public class CustomerController {
 	
 	@Autowired
 	private CustomerService customerService;
 	
-	@RequestMapping(method = RequestMethod.GET)
+	@GET
 	public List<Customer> listCustomers() {
 		return customerService.list();
 	}
 	
-	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public Customer getCustomer(@PathVariable(value = "id") Long id) {
+	@Path("/{id}")
+	@GET
+	public Customer getCustomer(@PathParam(value = "id") Long id) {
 		return customerService.get(id);
 	}
 	
-	@RequestMapping(method = RequestMethod.POST)
-	public Customer saveCustomer(@RequestBody Customer customer) {
+	@POST
+	public Customer saveCustomer(Customer customer) {
 		return customerService.save(customer);
 	}
 }
